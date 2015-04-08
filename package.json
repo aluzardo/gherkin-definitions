@@ -1,0 +1,11 @@
+{
+  "name": "gherkin-definitions",
+  "version": "0.1.0",
+  "description": "Define reusable blocks of cucumber steps.",
+  "main": "index.js",
+  "scripts": {
+    "test": "cd test && ./run-test"
+  },
+  "author": "Jasper Woudenberg",
+  "license": "ISC"
+}
