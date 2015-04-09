@@ -34,6 +34,29 @@ Feature: I want to test my bicycle
 Because definition steps get expanded in the features that are run, the test output will contain all these steps.
 We can mitigate this in the future by writing a custom formatter that cleans up the output.
 
+## Usage
+
+`gherkin-definitions` exports a function that transforms a file with definitions to one where definition steps have been expanded:
+
+```js
+    var input = fs.readFileSync('/path/to/my/file', { encoding: 'utf8' });
+    var output = require('gherkin-definitions')(input);
+    fs.writeFileSync('/path/to/output', output);
+```
+
+Included is also a gulp task, which can be used like this:
+
+```js
+    var gherkinDefinitions = require('gherkin-definitions/gulp');
+    gulp.task('expand-gherkin-definitions', function() {
+        gulp.src('./features/**/*.feature')
+            .pipe(gherkinDefinitions)
+            .pipe(gulp.dest('./expanded-features'));
+    });
+```
+
+Now you can run your tests against the `expanded-features` directory instead of the `features` one.
+
 ## Motivation
 
 We want a way to compose steps out of other steps for use in cucumber.js.
