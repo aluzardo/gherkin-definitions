@@ -4,10 +4,8 @@ var assert = require('assert');
 
 var input = fs.readFileSync('./input.feature').toString();
 var expectedOutput = fs.readFileSync('./output.feature').toString();
-var pullDefinitions = require('../').pullDefinitions;
-var insertDefinitions = require('../').insertDefinitions;
-var between = pullDefinitions(input);
-var output = insertDefinitions(between);
+var expandDefinitions = require('../');
+var output = expandDefinitions(input);
 assert.equal(output, expectedOutput, 'Output and expected output do not match.');
 
 console.log('Test succeeded!');

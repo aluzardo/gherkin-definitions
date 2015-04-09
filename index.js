@@ -108,6 +108,12 @@ function maybeExpandLine(line) {
     return expandedLines;
 }
 
+function expandDefinitions(input) {
+    var pulledDefinitions = pullDefinitions(input);
+    var output = insertDefinitions(pulledDefinitions);
+    return output;
+}
 
+module.exports = expandDefinitions;
 module.exports.pullDefinitions = pullDefinitions;
 module.exports.insertDefinitions = insertDefinitions;
