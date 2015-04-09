@@ -34,7 +34,7 @@ function definitionFromLines(lines) {
     var headerLine = lines.shift();
     var header = headerLine.match(DEFINITION_START_REGEX)[1].trim();
     var definitionPlaceholders = header.match(PLACEHOLDER_GROUP_REGEX) || [];
-    var matcher = new RegExp(header.replace(PLACEHOLDER_GROUP_REGEX, '(.*?)'));
+    var matcher = new RegExp('^' + header.replace(PLACEHOLDER_GROUP_REGEX, '(.*?)') + '$');
     var steps = lines
         .filter(function removeEmptyLines(stepLine) {
             return (stepLine !== '');

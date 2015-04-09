@@ -1,11 +1,19 @@
 #!/usr/bin/env node
 var fs = require('fs');
-var assert = require('assert');
 
 var input = fs.readFileSync('./input.feature').toString();
 var expectedOutput = fs.readFileSync('./output.feature').toString();
 var expandDefinitions = require('../');
 var output = expandDefinitions(input);
-assert.equal(output, expectedOutput, 'Output and expected output do not match.');
 
-console.log('Test succeeded!');
+if (output === expectedOutput) {
+    return console.log('Test succeeded!');
+} else {
+    var errorMsg = 'Output and expected output do not match.';
+    console.log('Tests failed: ' + errorMsg);
+    console.log('--- OUTPUT ---');
+    console.log(output);
+    console.log('--- EXPECTED ---');
+    console.log(expectedOutput);
+    throw new Error(errorMsg);
+}

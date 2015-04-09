@@ -1,6 +1,6 @@
-Definition: I have a bicycle with <numberOfWheels> wheels
+Definition: I have a bicycle with <numberOfWheels> <attribute>
     Given I have a frame
-    And I attach <numberOfWheels> wheels
+    And I attach <numberOfWheels> <attribute>
     And I attach a saddle
 
 Feature: I want to test my bicycle
