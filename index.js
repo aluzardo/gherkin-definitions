@@ -82,13 +82,18 @@ function maybeExpandLine(line) {
         //It's not a step.
         return null;
     }
+    //Search through the definitions in order of decreasing header length.
+    //This is a basic way to help prioritizing specific steps over less specific ones.
+    var sortedDefinitions = definitions.sort(function compareDefinitions(definitionA, definitionB) {
+        return definitionB.header.length - definitionA.header.length;
+    });
     var indentation = stepMatch[1];
     var stepBody = stepMatch[2].trim();
     var definitionMatch = null;
     var definition = null;
     var i = 0, len = definitions.length;
     while (!definitionMatch && i < len) {
-        definition = definitions[i];
+        definition = sortedDefinitions[i];
         definitionMatch = definition.matcher.exec(stepBody);
         i++;
     }
