@@ -1,6 +1,6 @@
 {
   "name": "gherkin-definitions",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Define reusable blocks of cucumber steps.",
   "main": "index.js",
   "scripts": {
