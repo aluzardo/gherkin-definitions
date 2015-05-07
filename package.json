@@ -9,6 +9,6 @@
   "author": "Jasper Woudenberg",
   "license": "ISC",
   "dependencies": {
-    "vinyl-map": "git+https://ab641c84ef77d48f252f3fd1c56a83c2672e115a:x-oauth-basic@github.com/hughsk/vinyl-map.git#4171258696800b8151bfe0cfec7650aca0a78985"
+    "vinyl-map": "git+https://github.com/hughsk/vinyl-map.git#4171258696800b8151bfe0cfec7650aca0a78985"
   }
 }
