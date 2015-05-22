@@ -1,3 +1,4 @@
+var escapeStringRegexp = require('escape-string-regexp');
 var SECTION_START_REGEX = /^\s*\w+:/;
 var DEFINITION_START_REGEX = /^\s*Definition:(.*)$/;
 var STEP_REGEX = /^(\s*)(?:GIVEN|WHEN|THEN|AND|BUT)(.*)$/i;
@@ -34,7 +35,7 @@ function definitionFromLines(lines) {
     var headerLine = lines.shift();
     var header = headerLine.match(DEFINITION_START_REGEX)[1].trim();
     var definitionPlaceholders = header.match(PLACEHOLDER_GROUP_REGEX) || [];
-    var matcher = new RegExp('^' + header.replace(PLACEHOLDER_GROUP_REGEX, '(.*?)') + '$');
+    var matcher = new RegExp('^' + escapeStringRegexp(header).replace(PLACEHOLDER_GROUP_REGEX, '(.*?)') + '$');
     var steps = lines
         .filter(function removeEmptyLines(stepLine) {
             return (stepLine !== '');

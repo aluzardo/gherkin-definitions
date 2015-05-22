@@ -1,6 +1,6 @@
 {
   "name": "@icemobile/gherkin-definitions",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Define reusable blocks of cucumber steps.",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,7 @@
   "author": "Jasper Woudenberg",
   "license": "ISC",
   "dependencies": {
+    "escape-string-regexp": "^1.0.3",
     "vinyl-map": "git+https://github.com/hughsk/vinyl-map.git#4171258696800b8151bfe0cfec7650aca0a78985"
   }
 }
